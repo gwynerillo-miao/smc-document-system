@@ -1,0 +1,377 @@
+/* ==========================================
+   STAFF MAIN PAGE
+========================================== */
+
+.staff-mainpage {
+    width: 100%;
+    padding: 0 40px 40px;
+}
+
+/* ==========================================
+   NEEDS YOUR ATTENTION
+========================================== */
+
+.attention-section {
+    width: 100%;
+    max-width: 1000px;
+    padding: 22px 24px;
+    background: #fff;
+    border: 1px solid #e2e8e5;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.attention-section h2 {
+    margin: 0 0 18px;
+    color: #333;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   ATTENTION ITEM
+========================================== */
+
+.attention-item {
+    width: 100%;
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 13px 16px;
+    background: #f8faf9;
+    border: 1px solid #e5ebe8;
+    border-radius: 9px;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.attention-item:hover {
+    background: #f3f8f5;
+    border-color: #13563a;
+}
+
+/* ==========================================
+   ATTENTION COUNT
+========================================== */
+
+.attention-count {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #13563a;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   ATTENTION INFORMATION
+========================================== */
+
+.attention-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.attention-title {
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.attention-description {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   ATTENTION ARROW
+========================================== */
+
+.attention-arrow {
+    color: #13563a;
+    font-size: 22px;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.attention-item:hover .attention-arrow {
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   REQUEST OVERVIEW
+========================================== */
+
+.overview-section {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 22px;
+}
+
+.overview-section h2 {
+    margin: 0 0 18px;
+    color: #333;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.overview-card {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e2e8e5;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.overview-count {
+    margin-bottom: 6px;
+    color: #13563a;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.overview-label {
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   RECENT DOCUMENT ACTIVITY
+========================================== */
+
+.activity-section {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+    padding: 22px 24px;
+    background: #fff;
+    border: 1px solid #e2e8e5;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   ACTIVITY HEADER
+========================================== */
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.activity-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.activity-header span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* ==========================================
+   ACTIVITY LIST
+========================================== */
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   ACTIVITY ITEM
+========================================== */
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 68px;
+    padding: 12px 4px;
+    border-bottom: 1px solid #edf1ef;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================
+   ACTIVITY ICON
+========================================== */
+
+.activity-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #eef6f2;
+    color: #13563a;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   ACTIVITY INFORMATION
+========================================== */
+
+.activity-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.activity-title {
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.activity-description {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* ==========================================
+   ACTIVITY DATE
+========================================== */
+
+.activity-date {
+    flex-shrink: 0;
+    color: #8a938f;
+    font-size: 11px;
+}
+
+/* ==========================================
+   ACTIVITY EMPTY
+========================================== */
+
+.activity-empty {
+    padding: 20px 4px;
+    color: #8a938f;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* ==========================================
+   FIRST LOGIN ACCOUNT SETUP
+========================================== */
+
+#staffSetupModal .staff-modal-content {
+    max-width: 500px;
+}
+
+#staffSetupModal .setup-description {
+    margin: 0 0 22px;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#staffSetupForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#staffSetupForm label {
+    margin-bottom: 7px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#staffSetupForm input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    padding: 11px 13px;
+    border: 1px solid #d9e2de;
+    border-radius: 7px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+#staffSetupForm input:focus {
+    border-color: #13563a;
+}
+
+#staffSetupForm .password-field {
+    margin-bottom: 16px;
+}
+
+#staffSetupForm .password-field input {
+    margin-bottom: 0;
+}
+
+#staffSetupMessage {
+    display: none;
+    margin: 0 0 14px;
+    color: #b42318;
+    font-size: 12px;
+}
+
+#staffSetupForm .change-password-submit {
+    margin-top: 4px;
+}
+
+/* ==========================================
+    FIRST LOGIN STAFF SETUP SCREEN
+ ========================================== */
+
+ body.staff-setup-required {
+     overflow: hidden;
+ }
+
+ body.staff-setup-required > *:not(#staffSetupModal) {
+     display: none !important;
+ }
+
+ body.staff-setup-required #staffSetupModal {
+     display: flex !important;
+     position: fixed;
+     inset: 0;
+     z-index: 9999;
+     align-items: center;
+     justify-content: center;
+     background: #ffffff;
+ }
+
+ body.staff-setup-required #staffSetupModal .staff-modal-content {
+     width: 100%;
+     max-width: 500px;
+     max-height: 90vh;
+     overflow-y: auto;
+     box-sizing: border-box;
+ }

@@ -1,0 +1,406 @@
+/* ==========================================
+   DOCUMENT SETTINGS CONTAINER
+========================================== */
+
+.document-container {
+    margin: 0 40px 40px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e1e5e3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   DOCUMENT TOP
+========================================== */
+
+.add-document-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 16px;
+    background: #13563a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-document-btn span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.add-document-btn:hover {
+    background: #0e432d;
+}
+
+/* ==========================================
+   DOCUMENT ACTIONS
+========================================== */
+
+.document-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: -52px 40px 16px;
+}
+
+/* ==========================================
+   DOCUMENT TABLE
+========================================== */
+
+.document-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 0;
+}
+
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.document-table th {
+    padding: 13px 15px;
+    background: #13563a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.document-table th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.document-table th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+.document-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #edf0ee;
+    color: #444;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.document-table tbody tr:hover {
+    background: #fafcfb;
+}
+
+.document-table th:nth-child(1),
+.document-table td:nth-child(1) {
+    width: 34%;
+}
+
+.document-table th:nth-child(2),
+.document-table td:nth-child(2) {
+    width: 18%;
+}
+
+.document-table th:nth-child(3),
+.document-table td:nth-child(3) {
+    width: 15%;
+}
+
+.document-table th:nth-child(4),
+.document-table td:nth-child(4) {
+    width: 20%;
+}
+
+.document-table th:nth-child(5),
+.document-table td:nth-child(5) {
+    width: 13%;
+}
+
+/* ==========================================
+   EDIT BUTTON
+========================================== */
+
+.edit-document-btn {
+    padding: 6px 14px;
+    background: #13563a;
+    color: #fff;
+    border: 1px solid #13563a;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit-document-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+/* ==========================================
+   ADD DOCUMENT MODAL
+========================================== */
+
+.document-modal {
+    width: 500px;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #edf0ee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 22px 24px;
+}
+
+.modal-body label,
+.input-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #444;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 10px 12px;
+    background: #fff;
+    color: #333;
+    border: 1px solid #d5dbd8;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.modal-body select {
+    width: 100%;
+    padding: 10px 12px;
+    background: #fff;
+    color: #333;
+    border: 1px solid #d5dbd8;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.modal-body select:focus {
+    border-color: #13563a;
+}
+
+.modal-body input:focus {
+    border-color: #13563a;
+}
+
+.modal-body input::placeholder {
+    color: #9aa3a0;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.input-group input {
+    width: 100%;
+}
+
+/* ==========================================
+   MODAL BUTTONS
+========================================== */
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 20px;
+}
+
+.cancel-btn,
+.save-btn {
+    min-width: 85px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #fff;
+    color: #555;
+    border: 1px solid #d5dbd8;
+}
+
+.cancel-btn:hover {
+    background: #f5f6f6;
+}
+
+.save-btn {
+    background: #13563a;
+    color: #fff;
+    border: 1px solid #13563a;
+}
+
+.save-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   CONFIRMATION MODAL
+========================================== */
+
+.confirm-modal {
+    width: 390px;
+    max-width: calc(100% - 40px);
+    padding: 28px 28px 22px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    text-align: center;
+}
+
+.confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 14px;
+    background: #e8f1ed;
+    color: #13563a;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.confirm-modal h2 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.confirm-modal p {
+    margin: 8px 0 4px;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.confirm-modal .modal-buttons {
+    padding: 20px 0 0;
+}
+
+/* ==========================================
+   EDIT MODAL
+========================================== */
+
+#editDocumentName {
+    background: #f5f6f6;
+    color: #666;
+    cursor: not-allowed;
+}
+
+#editDocumentName:focus {
+    border-color: #d5dbd8;
+}
+
+/* ==========================================
+   EDIT MODAL BUTTONS
+========================================== */
+
+.edit-modal-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px 20px;
+}
+
+.edit-right-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-btn {
+    min-width: 75px;
+    padding: 9px 16px;
+    background: #fff;
+    color: #b42318;
+    border: 1px solid #b42318;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #b42318;
+    color: #fff;
+}
+
+/* ==========================================
+   DELETE CONFIRM BUTTON
+========================================== */
+
+.delete-confirm-btn {
+    min-width: 85px;
+    padding: 9px 16px;
+    background: #b42318;
+    color: #fff;
+    border: 1px solid #b42318;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-confirm-btn:hover {
+    background: #921c13;
+    border-color: #921c13;
+}

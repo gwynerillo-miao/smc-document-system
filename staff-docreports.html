@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - St. Matthew College</title>
+
+    <link rel="stylesheet" href="staff-dashboard.css">
+    <link rel="stylesheet" href="staff-docreports.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="staff-menu">
+
+            <button type="button" class="staff-btn" id="staffMenuBtn">
+                <span class="staff-avatar" id="staffAvatar">R</span>
+                <span class="staff-name" id="staffName">Registrar</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="staff-dropdown" id="staffDropdown">
+
+                <button type="button" class="dropdown-item" id="accountSettingsBtn">
+                    <span class="dropdown-icon">⚙</span>
+                    <span>Account Settings</span>
+                </button>
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔑</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="staffLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="staffSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentRequestsBtn">
+                    <span class="sidebar-icon">▤</span>
+                    <span>Document Requests</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentHistoryBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>Document History</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentReportsBtn">
+                    <span class="sidebar-icon">▥</span>
+                    <span>Document Reports</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>
+                    <span class="page-icon">▥</span>
+                    Document Reports
+                </h1>
+
+                <p>
+                    View reports and summaries of document requests.
+                </p>
+            </div>
+
+            <section class="request-reports-container">
+
+                <div class="request-reports-top">
+
+                    <h2>Request Reports</h2>
+
+                    <div class="request-reports-controls">
+
+                        <label for="monthPicker">Sort by:</label>
+
+                        <button type="button" class="sort-picker" id="sortPicker">
+                            <span id="sortValue">All Time</span>
+                            <span class="sort-icon">▾</span>
+                        </button>
+
+                        <input type="month" id="monthPicker">
+
+                    </div>
+
+                </div>
+
+                <div class="request-reports-content">
+
+                    <div class="request-reports-summary">
+
+                        <h3>Request Summary</h3>
+
+                        <div class="summary-list">
+
+                            <div class="summary-item">
+                                <span class="summary-label">Total Requests</span>
+                                <span class="summary-value" id="totalRequests"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Pending Review</span>
+                                <span class="summary-value" id="pendingReviewRequests"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Pending Payment</span>
+                                <span class="summary-value" id="pendingPaymentRequests"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Processing</span>
+                                <span class="summary-value" id="processingRequests"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Ready for Pickup</span>
+                                <span class="summary-value" id="readyForPickupRequests"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Completed</span>
+                                <span class="summary-value" id="completedRequests"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Rejected</span>
+                                <span class="summary-value" id="rejectedRequests"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="request-reports-chart">
+
+                        <h3>Request Status</h3>
+
+                        <div class="pie-chart">
+                            <div class="pie-center">
+                                <strong id="chartTotal"></strong>
+                                <span>Requests</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-legend">
+
+                            <div class="legend-item">
+                                <span class="legend-dot pending-review-dot"></span>
+                                <span>Pending Review</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot pending-payment-dot"></span>
+                                <span>Pending Payment</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot processing-dot"></span>
+                                <span>Processing</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot ready-for-pickup-dot"></span>
+                                <span>Ready for Pickup</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot completed-dot"></span>
+                                <span>Completed</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot rejected-dot"></span>
+                                <span>Rejected</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="document-type-reports-container">
+
+                <div class="document-type-reports-top">
+
+                    <h2>Document Type Reports</h2>
+
+                </div>
+
+                <div class="document-type-reports-content">
+
+                    <h3>Most Requested Documents</h3>
+
+                    <div class="document-type-chart" id="documentTypeChart">
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ACCOUNT SETTINGS MODAL -->
+
+    <div class="staff-modal" id="accountSettingsModal">
+
+        <div class="staff-modal-content">
+
+            <div class="staff-modal-header">
+
+                <h2>Account Settings</h2>
+
+                <button
+                    type="button"
+                    class="staff-modal-close"
+                    id="closeAccountSettings">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="accountSettingsForm">
+
+                <div class="account-settings-row">
+
+                    <label class="account-settings-label">
+                        Staff ID
+                    </label>
+
+                    <div
+                        class="account-settings-value"
+                        id="accountStaffId">
+                    </div>
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label class="account-settings-label">
+                        Full Name
+                    </label>
+
+                    <div
+                        class="account-settings-value"
+                        id="accountStaffName">
+                    </div>
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label class="account-settings-label">
+                        Role
+                    </label>
+
+                    <div
+                        class="account-settings-value"
+                        id="accountStaffRole">
+                    </div>
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label
+                        class="account-settings-label"
+                        for="accountStaffEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="accountStaffEmail"
+                        class="account-settings-input"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label
+                        class="account-settings-label"
+                        for="accountStaffPhone">
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="accountStaffPhone"
+                        class="account-settings-input"
+                        placeholder="Enter your contact number"
+                        required
+                    >
+
+                </div>
+
+                <p id="accountSettingsMessage"></p>
+
+                <button
+                    type="submit"
+                    class="account-settings-submit">
+                    Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+
+    <div class="staff-modal" id="changePasswordModal">
+
+        <div class="staff-modal-content">
+
+            <div class="staff-modal-header">
+
+                <h2>Change Password</h2>
+
+                <button type="button" class="staff-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="currentPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="newPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="confirmPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="staff-data.js"></script>
+    <script src="staff-dashboard.js"></script>
+    <script src="staff-docreports.js"></script>
+
+</body>
+
+</html>

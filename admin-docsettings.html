@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - St. Matthew College</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-docsettings.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="admin-menu">
+
+            <button type="button" class="admin-btn" id="adminMenuBtn">
+                <span class="admin-avatar">A</span>
+                <span class="admin-name" id="adminName">Admin</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="admin-dropdown" id="adminDropdown">
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔒</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="adminLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="adminSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <div class="sidebar-dropdown">
+
+                    <button type="button" class="sidebar-item account-btn">
+                        <span class="sidebar-icon">♟</span>
+                        <span>Account Management</span>
+                        <span class="sidebar-arrow">▼</span>
+                    </button>
+
+                    <div class="submenu">
+
+                        <button type="button" class="submenu-item" id="studentManagementBtn">
+                            Student Management
+                        </button>
+
+                        <button type="button" class="submenu-item" id="staffManagementBtn">
+                            Staff Management
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="sidebar-item" id="historyReportsBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>History & Reports</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentSettingsBtn">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Document Settings</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="announcementsBtn">
+                    <span class="sidebar-icon">🗣</span>
+                    <span>Announcements</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>
+                    <span class="page-icon">⚙</span>
+                    Document Settings
+                </h1>
+
+                <p>Manage document types, prices, and processing times.</p>
+            </div>
+
+            <div class="document-actions">
+
+                <button type="button" class="add-document-btn">
+                    <span>+</span>
+                    Add Document Type
+                </button>
+
+            </div>
+
+            <div class="document-container">
+
+                <div class="document-table-wrapper">
+                    <table class="document-table">
+                        <thead>
+                            <tr>
+                                <th>Document Type</th>
+                                <th>Assigned Staff</th>
+                                <th>Price</th>
+                                <th>Processing Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="documentTableBody"></tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </main>
+
+        <div class="modal-overlay" id="addDocumentModal">
+
+            <div class="document-modal">
+
+                <div class="modal-header">
+                    <h2>Add Document Type</h2>
+                </div>
+
+                <div class="modal-body">
+
+                    <label for="documentName">Document Type</label>
+                    <input type="text" id="documentName" placeholder="Enter document type">
+
+                    <div class="input-row">
+
+                        <div class="input-group">
+                            <label for="documentAssignedStaff">Assigned Staff</label>
+                            <select id="documentAssignedStaff">
+                                <option value="">Select staff</option>
+                                <option value="Registrar">Registrar</option>
+                                <option value="Guidance">Guidance</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="documentPrice">Price</label>
+                            <input type="number" id="documentPrice" placeholder="Enter price" min="0">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="documentProcessingTime">Processing Time</label>
+                            <input type="number" id="documentProcessingTime" placeholder="Working days" min="1">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelAddDocument">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="save-btn" id="saveDocument">
+                        Save
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="confirmDocumentModal">
+
+            <div class="confirm-modal">
+
+                <div class="confirm-icon">?</div>
+
+                <h2>Confirm Add Document</h2>
+
+                <p>Are you sure you want to add this document type?</p>
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelConfirmDocument">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="save-btn" id="confirmAddDocument">
+                        Confirm
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="editDocumentModal">
+
+            <div class="document-modal">
+
+                <div class="modal-header">
+                    <h2>Edit Document Type</h2>
+                </div>
+
+                <div class="modal-body">
+
+                    <label for="editDocumentName">Document Type</label>
+                    <input type="text" id="editDocumentName" readonly>
+
+                    <div class="input-row">
+
+                        <div class="input-group">
+                            <label for="editDocumentAssignedStaff">Assigned Staff</label>
+                            <select id="editDocumentAssignedStaff">
+                                <option value="Registrar">Registrar</option>
+                                <option value="Guidance">Guidance</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="editDocumentPrice">Price</label>
+                            <input type="number" id="editDocumentPrice" min="0">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="editDocumentProcessingTime">Processing Time</label>
+                            <input type="number" id="editDocumentProcessingTime" min="1">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="edit-modal-buttons">
+
+                    <button type="button" class="delete-btn" id="deleteDocument">
+                        Delete
+                    </button>
+
+                    <div class="edit-right-buttons">
+
+                        <button type="button" class="cancel-btn" id="cancelEditDocument">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="save-btn" id="saveEditDocument">
+                            Save
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="confirmEditModal">
+
+            <div class="confirm-modal">
+
+                <div class="confirm-icon">?</div>
+
+                <h2>Confirm Changes</h2>
+
+                <p>Are you sure you want to save these changes?</p>
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelConfirmEdit">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="save-btn" id="confirmEdit">
+                        Confirm
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="confirmDeleteModal">
+
+            <div class="confirm-modal">
+
+                <div class="confirm-icon">!</div>
+
+                <h2>Delete Document Type</h2>
+
+                <p>Are you sure you want to delete this document type?</p>
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelConfirmDelete">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="delete-confirm-btn" id="confirmDelete">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="admin-modal" id="changePasswordModal">
+
+        <div class="admin-modal-content">
+
+            <div class="admin-modal-header">
+                <h2>Change Password</h2>
+                <button type="button" class="admin-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+                    <button type="button" class="password-toggle" data-target="currentPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="newPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="confirmPassword">
+                        👁
+                    </button>
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="admin-data.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="admin-docsettings.js"></script>
+
+</body>
+</html>

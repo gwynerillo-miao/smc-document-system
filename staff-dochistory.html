@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - St. Matthew College</title>
+
+    <link rel="stylesheet" href="staff-dashboard.css">
+    <link rel="stylesheet" href="staff-dochistory.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="staff-menu">
+
+            <button type="button" class="staff-btn" id="staffMenuBtn">
+                <span class="staff-avatar" id="staffAvatar">R</span>
+                <span class="staff-name" id="staffName">Registrar</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="staff-dropdown" id="staffDropdown">
+
+                <button type="button" class="dropdown-item" id="accountSettingsBtn">
+                    <span class="dropdown-icon">⚙</span>
+                    <span>Account Settings</span>
+                </button>
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔑</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="staffLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="staffSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentRequestsBtn">
+                    <span class="sidebar-icon">▤</span>
+                    <span>Document Requests</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentHistoryBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>Document History</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentReportsBtn">
+                    <span class="sidebar-icon">▥</span>
+                    <span>Document Reports</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>
+                    <span class="page-icon">◷</span>
+                    Document History
+                </h1>
+
+                <p>
+                    View completed and rejected document requests.
+                </p>
+            </div>
+
+            <section class="history-container">
+
+                <div class="history-top">
+
+                    <h2>Request History</h2>
+
+                    <div class="history-controls">
+
+                        <div class="history-search">
+                            <span class="search-icon">⌕</span>
+                            <input
+                                type="text"
+                                id="historySearch"
+                                placeholder="Search reference number or student name..."
+                            >
+                        </div>
+
+                        <select id="historyStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="completed">Completed</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+
+                        <select id="historyDocumentFilter">
+                            <option value="all">All Document Types</option>
+                        </select>
+
+                        <select id="historySortFilter">
+                            <option value="newest">Newest to Oldest</option>
+                            <option value="oldest">Oldest to Newest</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="history-table-wrapper">
+
+                    <table class="history-table">
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Reference Number</th>
+                                <th>Document Type</th>
+                                <th>Date Requested</th>
+                                <th>Date Completed</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="historyTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="history-footer">
+
+                    <span class="history-count" id="historyCount"></span>
+
+                    <div class="pagination" id="pagination"></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- ACCOUNT SETTINGS MODAL -->
+
+    <div class="staff-modal" id="accountSettingsModal">
+
+        <div class="staff-modal-content">
+
+            <div class="staff-modal-header">
+
+                <h2>Account Settings</h2>
+
+                <button
+                    type="button"
+                    class="staff-modal-close"
+                    id="closeAccountSettings">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="accountSettingsForm">
+
+                <div class="account-settings-row">
+
+                    <label class="account-settings-label">
+                        Staff ID
+                    </label>
+
+                    <div
+                        class="account-settings-value"
+                        id="accountStaffId">
+                    </div>
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label class="account-settings-label">
+                        Full Name
+                    </label>
+
+                    <div
+                        class="account-settings-value"
+                        id="accountStaffName">
+                    </div>
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label class="account-settings-label">
+                        Role
+                    </label>
+
+                    <div
+                        class="account-settings-value"
+                        id="accountStaffRole">
+                    </div>
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label
+                        class="account-settings-label"
+                        for="accountStaffEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="accountStaffEmail"
+                        class="account-settings-input"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <div class="account-settings-row">
+
+                    <label
+                        class="account-settings-label"
+                        for="accountStaffPhone">
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="accountStaffPhone"
+                        class="account-settings-input"
+                        placeholder="Enter your contact number"
+                        required
+                    >
+
+                </div>
+
+                <p id="accountSettingsMessage"></p>
+
+                <button
+                    type="submit"
+                    class="account-settings-submit">
+                    Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- CHANGE PASSWORD MODAL -->
+
+    <div class="staff-modal" id="changePasswordModal">
+
+        <div class="staff-modal-content">
+
+            <div class="staff-modal-header">
+
+                <h2>Change Password</h2>
+
+                <button type="button" class="staff-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="currentPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="newPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="confirmPassword"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="historyDetailsModal" class="history-details-modal">
+
+        <div class="history-details-modal-content">
+
+            <span class="history-details-close-btn">&times;</span>
+
+            <h2>Request Details</h2>
+
+            <div id="historyDetails"></div>
+
+        </div>
+
+    </div>
+
+    <script src="staff-data.js"></script>
+    <script src="staff-dashboard.js"></script>
+    <script src="staff-dochistory.js"></script>
+
+</body>
+
+</html>

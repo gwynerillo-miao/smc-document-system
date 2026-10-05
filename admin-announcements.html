@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - St. Matthew College</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-announcements.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="admin-menu">
+
+            <button type="button" class="admin-btn" id="adminMenuBtn">
+                <span class="admin-avatar">A</span>
+                <span class="admin-name" id="adminName">Admin</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="admin-dropdown" id="adminDropdown">
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔒</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="adminLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="adminSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <div class="sidebar-dropdown">
+
+                    <button type="button" class="sidebar-item account-btn">
+                        <span class="sidebar-icon">♟</span>
+                        <span>Account Management</span>
+                        <span class="sidebar-arrow">▼</span>
+                    </button>
+
+                    <div class="submenu">
+
+                        <button type="button" class="submenu-item" id="studentManagementBtn">
+                            Student Management
+                        </button>
+
+                        <button type="button" class="submenu-item" id="staffManagementBtn">
+                            Staff Management
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="sidebar-item" id="historyReportsBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>History & Reports</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentSettingsBtn">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Document Settings</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="announcementsBtn">
+                    <span class="sidebar-icon">🗣</span>
+                    <span>Announcements</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+    <main class="main-content">
+
+        <div class="page-header">
+            <h1>
+                <span class="page-icon">🗣</span>
+                Announcements
+            </h1>
+
+            <p>Manage announcements displayed to students.</p>
+        </div>
+
+        <div class="announcement-actions">
+
+            <button type="button" class="create-announcement-btn">
+                <span>+</span>
+                Create Announcement
+            </button>
+
+        </div>
+
+        <div class="announcement-container">
+
+            <div class="announcement-toolbar">
+
+                <p id="announcementCount"></p>
+
+                <div class="announcement-sort">
+
+                    <label for="announcementSort">
+                        Sort:
+                    </label>
+
+                    <select id="announcementSort">
+
+                        <option value="newest">
+                            Newest to Oldest
+                        </option>
+
+                        <option value="oldest">
+                            Oldest to Newest
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="announcement-list" id="announcementList"></div>
+
+        </div>
+
+        <div class="modal-overlay" id="createAnnouncementModal">
+
+            <div class="announcement-modal">
+
+                <div class="modal-header">
+                    <h2>Create Announcement</h2>
+                    <p>Create an announcement to display to students.</p>
+                </div>
+
+                <div class="modal-body">
+
+                    <label for="announcementTitle">Announcement Title</label>
+                    <input
+                        type="text"
+                        id="announcementTitle"
+                        placeholder="Enter announcement title"
+                    >
+
+                    <span class="field-error" id="announcementTitleError"></span>
+
+                    <label for="announcementMessage">Message</label>
+                    <textarea
+                        id="announcementMessage"
+                        placeholder="Enter announcement message"
+                    ></textarea>
+
+                    <span class="field-error" id="announcementMessageError"></span>
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelAnnouncement">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="publish-btn" id="publishAnnouncement">
+                        Publish
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="confirmAnnouncementModal">
+
+            <div class="confirm-modal">
+
+                <div class="confirm-icon">?</div>
+
+                <h2>Publish Announcement</h2>
+
+                <p>Are you sure you want to publish this announcement?</p>
+
+                <div class="modal-buttons">
+
+                    <button type="button" class="cancel-btn" id="cancelConfirmAnnouncement">
+                        Cancel
+                    </button>
+
+                    <button type="button" class="publish-btn" id="confirmPublishAnnouncement">
+                        Confirm
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="editAnnouncementModal">
+
+            <div class="announcement-modal">
+
+                <div class="modal-header">
+                    <h2>Edit Announcement</h2>
+                    <p>Edit the announcement details.</p>
+                </div>
+
+                <div class="modal-body">
+
+                    <label for="editAnnouncementTitle">
+                        Announcement Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editAnnouncementTitle"
+                        placeholder="Enter announcement title"
+                    >
+
+                    <span
+                        class="field-error"
+                        id="editAnnouncementTitleError">
+                    </span>
+
+
+                    <label for="editAnnouncementMessage">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="editAnnouncementMessage"
+                        placeholder="Enter announcement message"
+                    ></textarea>
+
+                    <span
+                        class="field-error"
+                        id="editAnnouncementMessageError">
+                    </span>
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelEditAnnouncement">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="publish-btn"
+                        id="saveEditAnnouncement">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="confirmEditAnnouncementModal">
+
+            <div class="confirm-modal">
+
+                <div class="confirm-icon">?</div>
+
+                <h2>Save Changes</h2>
+
+                <p>
+                    Are you sure you want to save these changes?
+                </p>
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelConfirmEditAnnouncement">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="publish-btn"
+                        id="confirmEditAnnouncement">
+                        Confirm
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-overlay" id="confirmDeleteAnnouncementModal">
+
+            <div class="confirm-modal">
+
+                <div class="confirm-icon">?</div>
+
+                <h2>Delete Announcement</h2>
+
+                <p>
+                    Are you sure you want to delete this announcement?
+                </p>
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelDeleteAnnouncement">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="button"
+                        class="delete-confirm-btn"
+                        id="confirmDeleteAnnouncement">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    </div>
+
+    <div class="admin-modal" id="changePasswordModal">
+
+        <div class="admin-modal-content">
+
+            <div class="admin-modal-header">
+                <h2>Change Password</h2>
+                <button type="button" class="admin-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+                    <button type="button" class="password-toggle" data-target="currentPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="newPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="confirmPassword">
+                        👁
+                    </button>
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="admin-data.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="admin-announcements.js"></script>
+
+</body>
+</html>

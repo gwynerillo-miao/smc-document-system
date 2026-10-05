@@ -1,0 +1,645 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f7f7f7;
+    color: #333;
+}
+
+/* ==========================================
+   NAVIGATION BAR
+========================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: #13563a;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.header-text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    height: 100%;
+    padding: 45px 7%;
+    background: rgba(19, 86, 58, 0.78);
+    color: white;
+}
+
+/* ==========================================
+   HERO CONTENT
+========================================== */
+
+.hero-content {
+    flex: 1;
+    max-width: 720px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   LOGIN CARD
+========================================== */
+
+.home-login-card {
+    width: 370px;
+    flex-shrink: 0;
+    padding: 30px 30px 27px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+}
+
+.login-logo {
+    display: block;
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+    margin: 0 auto 25px;
+}
+
+/* ==========================================
+   LOGIN FIELDS
+========================================== */
+
+.login-field {
+    margin-bottom: 20px;
+}
+
+.login-field input {
+    width: 100%;
+    height: 46px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 6px;
+    background: white;
+    color: #333;
+    font-size: 15px;
+    outline: none;
+}
+
+.login-field input::placeholder {
+    color: #777;
+}
+
+.login-field input:focus {
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.15);
+}
+
+/* ==========================================
+   PASSWORD FIELD
+========================================== */
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 48px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #13563a;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.password-toggle:hover,
+.password-toggle:focus-visible {
+    background: #e8f1ec;
+    outline: none;
+}
+
+/* ==========================================
+   FORGOT PASSWORD
+========================================== */
+
+.forgot-password {
+    text-align: right;
+    margin-top: -7px;
+    margin-bottom: 16px;
+}
+
+.forgot-password a {
+    color: #13563a;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   LOGIN BUTTON
+========================================== */
+
+.home-login-btn {
+    width: 100%;
+    height: 46px;
+    border: none;
+    border-radius: 6px;
+    background: #13563a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.home-login-btn:hover {
+    background: #0e432d;
+}
+
+#loginMessage {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* ==========================================
+   SIGN UP
+========================================== */
+
+.signup-text {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #13563a;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.signup-text a:hover {
+    text-decoration: none;
+}
+
+/* ==========================================
+   FORGOT PASSWORD MODAL
+========================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.modal-content {
+    position: relative;
+    width: 420px;
+    max-width: 100%;
+    padding: 35px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    color: #666;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #13563a;
+}
+
+.modal-content h2 {
+    margin-bottom: 12px;
+    color: #13563a;
+    font-size: 25px;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+#forgotPasswordForm input {
+    width: 100%;
+    height: 46px;
+    padding: 0 15px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+#forgotPasswordForm input:focus {
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.1);
+}
+
+#forgotPasswordForm button,
+#forgotPasswordDone {
+    width: 100%;
+    height: 46px;
+    border: none;
+    border-radius: 6px;
+    background: #13563a;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#forgotPasswordForm button:hover,
+#forgotPasswordDone:hover {
+    background: #0e432d;
+}
+
+.forgot-password-result {
+    display: none;
+}
+
+/* ==========================================
+   ABOUT SECTION
+========================================== */
+
+.about {
+    padding: 60px 20px;
+    background: #f9f9f9;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about h1 {
+    text-align: center;
+    color: #13563a;
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.about h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #13563a;
+    font-size: 24px;
+}
+
+.about p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* ==========================================
+   DOCUMENT TABLE
+========================================== */
+
+.document-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.document-table th,
+.document-table td {
+    padding: 14px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.document-table th {
+    background: #13563a;
+    color: white;
+}
+
+.document-table tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.document-table tr:hover {
+    background: #eef6ef;
+}
+
+/* ==========================================
+   CONTACT SECTION
+========================================== */
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 60px 40px;
+    background: #f2f2f2;
+}
+
+.contact-column,
+.quick-links-column {
+    flex: 1;
+}
+
+.contact-section h2 {
+    margin-bottom: 20px;
+    color: #13563a;
+}
+
+.contact-list,
+.quick-links-list {
+    list-style: none;
+}
+
+.contact-list li,
+.quick-links-list li {
+    margin-bottom: 12px;
+}
+
+.contact-list a,
+.quick-links-list a {
+    color: #13563a;
+    text-decoration: none;
+}
+
+.contact-list a:hover,
+.quick-links-list a:hover {
+    text-decoration: underline;
+}
+
+.phone-list {
+    list-style: none;
+    margin-top: 8px;
+    margin-left: 18px;
+    padding: 0;
+}
+
+.phone-list li {
+    margin-bottom: 6px;
+}
+
+.phone-list strong {
+    color: #13563a;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer {
+    width: 100%;
+    background-color: #13563a;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* NAVIGATION BAR */
+
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .logo-container {
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .header-logo {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+    .header-text {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+
+    /* HERO SECTION */
+
+    .hero {
+        height: auto;
+        min-height: 760px;
+    }
+
+    .hero-overlay {
+        flex-direction: column;
+        justify-content: center;
+        gap: 35px;
+        padding: 45px 25px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 650px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+
+    /* LOGIN CARD */
+
+    .home-login-card {
+        width: min(370px, 100%);
+        padding: 27px 25px 24px;
+    }
+
+    .login-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+
+    /* MODAL */
+
+    .modal-content {
+        padding: 30px 25px;
+    }
+
+
+    /* ABOUT SECTION */
+
+    .about {
+        padding: 40px 20px;
+    }
+
+    .about-container {
+        width: 100%;
+    }
+
+    .about h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .about h2 {
+        font-size: 22px;
+        line-height: 1.3;
+        margin-top: 30px;
+    }
+
+    .about p {
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+
+    /* DOCUMENT TABLE */
+
+    .document-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    .document-table th,
+    .document-table td {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+
+    /* CONTACT SECTION */
+
+    .contact-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .contact-section h2 {
+        font-size: 22px;
+    }
+
+    .contact-list li,
+    .quick-links-list li {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .contact-list a,
+    .quick-links-list a {
+        overflow-wrap: anywhere;
+    }
+
+    .phone-list {
+        margin-left: 10px;
+    }
+
+
+    /* FOOTER */
+
+    .site-footer {
+        padding: 14px 15px;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+}

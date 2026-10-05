@@ -1,0 +1,1494 @@
+/* ==========================================
+   MANAGEMENT SECTIONS
+========================================== */
+
+.management-section {
+    display: none;
+}
+
+.management-section.active {
+    display: block;
+}
+
+/* ==========================================
+   ACTIVE SUBMENU
+========================================== */
+
+.submenu-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ==========================================
+   STUDENT MANAGEMENT
+========================================== */
+
+.student-container {
+    margin: 0 40px 40px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e1e5e3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.student-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.student-top h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.student-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.student-search {
+    position: relative;
+    width: 300px;
+}
+
+.student-search .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.student-search input {
+    width: 100%;
+    height: 36px;
+    padding: 0 12px 0 35px;
+    border: 1px solid #d5ddd9;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-family: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.student-search input::placeholder {
+    color: #999;
+}
+
+.student-search input:focus {
+    outline: none;
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.08);
+}
+
+.student-controls select {
+    height: 36px;
+    padding: 0 30px 0 11px;
+    border: 1px solid #d5ddd9;
+    border-radius: 6px;
+    background: #fff;
+    color: #444;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.student-controls select:focus {
+    outline: none;
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.08);
+}
+
+
+/* ==========================================
+   STUDENT TABLE
+========================================== */
+
+.student-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.student-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.student-table th {
+    padding: 13px 15px;
+    background: #13563a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.student-table th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.student-table th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+.student-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #edf0ee;
+    color: #444;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.student-table tbody tr:hover {
+    background: #fafcfb;
+}
+
+
+/* ==========================================
+   COLUMN WIDTHS
+========================================== */
+
+.student-table th:nth-child(1),
+.student-table td:nth-child(1) {
+    width: 18%;
+}
+
+.student-table th:nth-child(2),
+.student-table td:nth-child(2) {
+    width: 25%;
+}
+
+.student-table th:nth-child(3),
+.student-table td:nth-child(3) {
+    width: 20%;
+}
+
+.student-table th:nth-child(4),
+.student-table td:nth-child(4) {
+    width: 17%;
+}
+
+.student-table th:nth-child(5),
+.student-table td:nth-child(5) {
+    width: 20%;
+}
+
+
+/* ==========================================
+   STUDENT STATUS
+========================================== */
+
+.student-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.student-status.pending {
+    background: #fff4d6;
+    color: #8a6500;
+}
+
+.student-status.approved {
+    background: #e7f3ed;
+    color: #13563a;
+}
+
+.student-status.rejected {
+    background: #fbe9e7;
+    color: #b42318;
+}
+
+
+/* ==========================================
+   STUDENT ACTION BUTTON
+========================================== */
+
+.student-action-btn {
+    padding: 6px 14px;
+    border: 1px solid #13563a;
+    border-radius: 5px;
+    background: #13563a;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.student-action-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+
+/* ==========================================
+   STUDENT FOOTER
+========================================== */
+
+.student-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+}
+
+.student-count {
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   PAGINATION
+========================================== */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.page-btn {
+    min-width: 30px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid #d5ddd9;
+    border-radius: 5px;
+    background: #fff;
+    color: #555;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.page-btn:hover {
+    border-color: #13563a;
+    color: #13563a;
+}
+
+.page-btn.active {
+    border-color: #13563a;
+    background: #13563a;
+    color: #fff;
+}
+
+.page-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   ACCOUNT REGISTRATION DETAILS MODAL
+========================================== */
+
+.student-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.student-modal.show {
+    display: flex;
+}
+
+.student-modal-box {
+    width: 100%;
+    max-width: 620px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.student-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.student-modal-header h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.student-modal-close {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.student-modal-close:hover {
+    color: #13563a;
+}
+
+.student-details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 70px 24px;
+}
+
+.detail-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: #777;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.detail-value {
+    color: #333;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.student-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 18px 24px;
+    border-top: 1px solid #e5e9e7;
+    background: #fafcfb;
+}
+
+.student-reject-btn,
+.student-approve-btn {
+    min-width: 90px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.student-reject-btn {
+    border: 1px solid #b42318;
+    background: #fff;
+    color: #b42318;
+}
+
+.student-reject-btn:hover {
+    background: #fbe9e7;
+}
+
+.student-approve-btn {
+    border: 1px solid #13563a;
+    background: #13563a;
+    color: #fff;
+}
+
+.student-approve-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   CONFIRM ACTION MODAL
+========================================== */
+
+.student-confirm-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.student-confirm-modal.show {
+    display: flex;
+}
+
+.student-confirm-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 28px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.student-confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #fbe9e7;
+    color: #b42318;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.student-confirm-box h2 {
+    margin: 0 0 8px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.student-confirm-box p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.student-confirm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.student-cancel-btn,
+.student-confirm-btn {
+    min-width: 85px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.student-cancel-btn {
+    border: 1px solid #d5ddd9;
+    background: #fff;
+    color: #555;
+}
+
+.student-cancel-btn:hover {
+    border-color: #13563a;
+    color: #13563a;
+}
+
+.student-confirm-btn {
+    border: 1px solid #13563a;
+    background: #13563a;
+    color: #fff;
+}
+
+.student-confirm-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   STAFF MANAGEMENT
+========================================== */
+
+.staff-container {
+    margin: 0 40px 40px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e1e5e3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.staff-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 0 40px 18px;
+}
+
+.staff-summary-card {
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid #e1e5e3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+}
+
+.staff-summary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.staff-summary-label {
+    color: #777;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.staff-summary-info strong {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+#totalStaffCount {
+    color: #344054;
+}
+
+#activeStaffCount {
+    color: #13563a;
+}
+
+#pendingStaffCount {
+    color: #8a6500;
+}
+
+#inactiveStaffCount {
+    color: #b42318;
+}
+
+.staff-summary-description {
+    color: #999;
+    font-size: 11px;
+}
+
+.add-staff-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 16px;
+    background: #13563a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-staff-btn span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.add-staff-btn:hover {
+    background: #0e432d;
+}
+
+.staff-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: -52px 40px 16px;
+}
+
+.staff-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.staff-top h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.staff-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.staff-search {
+    position: relative;
+    width: 300px;
+}
+
+.staff-search .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.staff-search input {
+    width: 100%;
+    height: 36px;
+    padding: 0 12px 0 35px;
+    border: 1px solid #d5ddd9;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-family: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.staff-search input::placeholder {
+    color: #999;
+}
+
+.staff-search input:focus {
+    outline: none;
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.08);
+}
+
+.staff-controls select {
+    height: 36px;
+    padding: 0 30px 0 11px;
+    border: 1px solid #d5ddd9;
+    border-radius: 6px;
+    background: #fff;
+    color: #444;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.staff-controls select:focus {
+    outline: none;
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.08);
+}
+
+
+/* ==========================================
+   STAFF TABLE
+========================================== */
+
+.staff-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.staff-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.staff-table th {
+    padding: 13px 15px;
+    background: #13563a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.staff-table th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.staff-table th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+.staff-table td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #edf0ee;
+    color: #444;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.staff-table tbody tr:hover {
+    background: #fafcfb;
+}
+
+
+/* ==========================================
+   COLUMN WIDTHS
+========================================== */
+
+.staff-table th:nth-child(1),
+.staff-table td:nth-child(1) {
+    width: 18%;
+}
+
+.staff-table th:nth-child(2),
+.staff-table td:nth-child(2) {
+    width: 27%;
+}
+
+.staff-table th:nth-child(3),
+.staff-table td:nth-child(3) {
+    width: 18%;
+}
+
+.staff-table th:nth-child(4),
+.staff-table td:nth-child(4) {
+    width: 17%;
+}
+
+.staff-table th:nth-child(5),
+.staff-table td:nth-child(5) {
+    width: 20%;
+}
+
+
+/* ==========================================
+   STAFF STATUS
+========================================== */
+
+.staff-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.staff-status.pending {
+    background: #fff4d6;
+    color: #8a6500;
+}
+
+.staff-status.active {
+    background: #e7f3ed;
+    color: #13563a;
+}
+
+.staff-status.inactive {
+    background: #fbe9e7;
+    color: #b42318;
+}
+
+
+/* ==========================================
+   STAFF ACTION BUTTON
+========================================== */
+
+.staff-action-btn {
+    padding: 6px 14px;
+    border: 1px solid #13563a;
+    border-radius: 5px;
+    background: #13563a;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-action-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+
+/* ==========================================
+   STAFF FOOTER
+========================================== */
+
+.staff-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+}
+
+.staff-count {
+    color: #777;
+    font-size: 12px;
+}
+
+/* ==========================================
+   ADD STAFF ACCOUNT
+========================================== */
+
+.staff-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.staff-modal.show {
+    display: flex;
+}
+
+.staff-modal-box {
+    width: 100%;
+    max-width: 530px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.staff-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.staff-modal-header h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.staff-modal-close {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.staff-modal-close:hover {
+    color: #13563a;
+}
+
+
+/* ==========================================
+   STAFF FORM
+========================================== */
+
+.staff-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+}
+
+.staff-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.staff-form-group label {
+    color: #555;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.staff-form-group input,
+.staff-form-group select {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #d5ddd9;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-family: inherit;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.staff-form-group input:focus,
+.staff-form-group select:focus {
+    outline: none;
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.08);
+}
+
+
+/* ==========================================
+   PASSWORD GENERATOR
+========================================== */
+
+.password-generator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.password-generator input {
+    flex: 1;
+    background: #f8faf9;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.password-generator button {
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #13563a;
+    border-radius: 6px;
+    background: #fff;
+    color: #13563a;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.password-generator button:hover {
+    background: #e7f3ed;
+}
+
+.password-note {
+    margin: 2px 0 0;
+    color: #888;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   STAFF MODAL ACTIONS
+========================================== */
+
+.staff-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 18px 24px;
+    border-top: 1px solid #e5e9e7;
+    background: #fafcfb;
+}
+
+.staff-cancel-btn,
+.staff-create-btn {
+    min-width: 95px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-cancel-btn {
+    border: 1px solid #d5ddd9;
+    background: #fff;
+    color: #555;
+}
+
+.staff-cancel-btn:hover {
+    border-color: #13563a;
+    color: #13563a;
+}
+
+.staff-create-btn {
+    border: 1px solid #13563a;
+    background: #13563a;
+    color: #fff;
+}
+
+.staff-create-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+
+/* ==========================================
+   CREATE STAFF CONFIRMATION
+========================================== */
+
+.staff-confirm-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.staff-confirm-modal.show {
+    display: flex;
+}
+
+.staff-confirm-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 28px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.staff-confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #fbe9e7;
+    color: #b42318;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.staff-confirm-box h2 {
+    margin: 0 0 8px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.staff-confirm-box p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.staff-confirm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.staff-confirm-cancel,
+.staff-confirm-btn {
+    min-width: 85px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-confirm-cancel {
+    border: 1px solid #d5ddd9;
+    background: #fff;
+    color: #555;
+}
+
+.staff-confirm-cancel:hover {
+    border-color: #13563a;
+    color: #13563a;
+}
+
+.staff-confirm-btn {
+    border: 1px solid #13563a;
+    background: #13563a;
+    color: #fff;
+}
+
+.staff-confirm-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   STAFF ACCOUNT SUCCESS MODAL
+========================================== */
+
+.staff-success-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.staff-success-modal.show {
+    display: flex;
+}
+
+.staff-success-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.staff-success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #e7f3ed;
+    color: #13563a;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.staff-success-box h2 {
+    margin: 0 0 10px;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.staff-success-message {
+    margin: 0 auto;
+    max-width: 430px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   STAFF CREDENTIALS
+========================================== */
+
+.staff-credentials {
+    margin-top: 22px;
+    padding: 4px 16px;
+    border: 1px solid #e1e5e3;
+    border-radius: 7px;
+    background: #fafcfb;
+    text-align: left;
+}
+
+.credential-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.credential-item:last-child {
+    border-bottom: none;
+}
+
+.credential-label {
+    color: #777;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.credential-value {
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+
+/* ==========================================
+   DONE BUTTON
+========================================== */
+
+.staff-done-btn {
+    width: 100%;
+    height: 38px;
+    margin-top: 22px;
+    border: 1px solid #13563a;
+    border-radius: 6px;
+    background: #13563a;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-done-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   STAFF ACCOUNT DETAILS
+========================================== */
+
+.staff-details-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.staff-details-modal.show {
+    display: flex;
+}
+
+.staff-details-box {
+    width: 100%;
+    max-width: 620px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.staff-details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.staff-details-header h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.staff-details-close {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.staff-details-close:hover {
+    color: #13563a;
+}
+
+
+/* ==========================================
+   STAFF DETAILS
+========================================== */
+
+.staff-details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 70px 24px;
+}
+
+.staff-detail-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 13px 0;
+    border-bottom: 1px solid #e5e9e7;
+}
+
+.staff-detail-item:last-child {
+    border-bottom: none;
+}
+
+.staff-detail-label {
+    color: #777;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.staff-detail-value {
+    color: #333;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   STAFF DETAILS ACTIONS
+========================================== */
+
+.staff-details-actions {
+    display: flex;
+    justify-content: flex-start;
+    padding: 18px 24px;
+    border-top: 1px solid #e5e9e7;
+    background: #fafcfb;
+}
+
+.staff-deactivate-btn {
+    min-width: 145px;
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid #b42318;
+    border-radius: 5px;
+    background: #fff;
+    color: #b42318;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-deactivate-btn:hover {
+    background: #fbe9e7;
+}
+
+
+/* ==========================================
+   DEACTIVATE CONFIRMATION
+========================================== */
+
+.staff-deactivate-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.staff-deactivate-modal.show {
+    display: flex;
+}
+
+.staff-deactivate-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 28px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.staff-deactivate-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #fbe9e7;
+    color: #b42318;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.staff-deactivate-box h2 {
+    margin: 0 0 8px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.staff-deactivate-box p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.staff-deactivate-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.staff-deactivate-cancel,
+.staff-deactivate-confirm {
+    min-width: 85px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.staff-deactivate-cancel {
+    border: 1px solid #d5ddd9;
+    background: #fff;
+    color: #555;
+}
+
+.staff-deactivate-cancel:hover {
+    border-color: #13563a;
+    color: #13563a;
+}
+
+.staff-deactivate-confirm {
+    border: 1px solid #b42318;
+    background: #b42318;
+    color: #fff;
+}
+
+.staff-deactivate-confirm:hover {
+    background: #922018;
+    border-color: #922018;
+}

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Matthew College</title>
+    <link rel="stylesheet" href="student-dashboard.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <button type="button" class="header-btn">Log Out</button>
+
+    </header>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="studentSidebar">
+
+            <div class="profile-section">
+
+                <img src="profile.png"
+                    alt="Profile Picture"
+                    class="profile-img"
+                    id="profileImage">
+
+                <h2 class="student-name" id="studentName"></h2>
+
+                <p class="student-number" id="studentNumber"></p>
+
+                <div class="profile-info-box">
+
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">Program</span>
+                        <span class="profile-info-value" id="studentProgram"></span>
+                    </div>
+
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">Home Address</span>
+                        <span class="profile-info-value" id="studentAddress"></span>
+                    </div>
+
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">Email Address</span>
+                        <span class="profile-info-value" id="studentEmail"></span>
+                    </div>
+
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">Phone Number</span>
+                        <span class="profile-info-value" id="studentPhone"></span>
+                    </div>
+
+                </div>
+
+                <button type="button" class="edit-profile-btn">Edit Profile</button>
+
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <section class="hero">
+
+                <div>
+                    <p class="hero-welcome">WELCOME!</p>
+                    <h1>Good Day, <span id="welcomeName"></span>!</h1>
+                    <p>Manage your documents and track your requests<br>easily in one place.</p>
+                </div>
+
+            </section>
+
+            <section class="document-services">
+
+                <button class="service-btn request-service" id="requestDocument">
+                    <span class="service-icon">+</span>
+                    <span class="service-title">Request Document</span>
+                    <span class="service-description">Submit a request for your school documents.</span>
+                    <span class="service-link">Get Started <span>→</span></span>
+                </button>
+
+                <button class="service-btn tracking-service" id="statusTracking">
+                    <span class="service-icon">↗</span>
+                    <span class="service-title">Status Tracking</span>
+                    <span class="service-description">Check the real-time status of your document requests.</span>
+                    <span class="service-link">Get Started <span>→</span></span>
+                </button>
+
+            </section>
+
+            <section class="history-panel">
+
+                <div class="history-heading">
+                    <h2>Request History</h2>
+                    <span class="history-subtitle">View All</span>
+                </div>
+
+                <div class="history-list" id="historyList">
+                    <p class="latest-history" id="latestHistory">No request history yet.</p>
+                </div>
+
+                <div id="historyModal" class="history-modal">
+
+                    <div class="history-modal-content">
+
+                        <span class="history-close-btn">&times;</span>
+
+                        <h2>Request History</h2>
+
+                        <div id="allHistoryList" class="all-history-list">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="historyDetailsModal" class="history-details-modal">
+
+                    <div class="history-details-modal-content">
+
+                        <span class="history-details-close-btn">&times;</span>
+
+                        <h2>Request Details</h2>
+
+                        <div id="historyDetails">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="notification-panel">
+
+                <div class="notification-heading">
+                    <h2>Notifications</h2>
+                    <span class="notification-subtitle">View All</span>
+                    <span class="notification-badge" id="notificationCount">0</span>
+                </div>
+
+                <div class="notification-list" id="notificationList">
+                    <p class="latest-notification" id="latestNotification">No notifications.</p>
+                </div>
+
+                <div id="notificationModal" class="notification-modal">
+
+                    <div class="notification-modal-content">
+
+                        <span class="notification-close-btn">&times;</span>
+
+                        <h2>Notifications</h2>
+
+                        <div id="allNotificationList" class="all-notification-list">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="notificationDetailsModal" class="notification-details-modal">
+
+                    <div class="notification-details-modal-content">
+
+                        <span class="notification-details-close-btn">&times;</span>
+
+                        <h2>Notification</h2>
+
+                        <div id="notificationDetails">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="announcement-panel">
+
+                <div class="announcement-heading">
+                    <h2>Announcement</h2>
+                </div>
+
+                <div class="announcement-list" id="announcementList">
+                    <p class="latest-announcement" id="latestAnnouncement">No announcement yet.</p>
+                </div>
+
+                <div id="announcementDetailsModal" class="announcement-details-modal">
+
+                    <div class="announcement-details-modal-content">
+
+                        <span class="announcement-details-close-btn">&times;</span>
+
+                        <h2>Announcement</h2>
+
+                        <div id="announcementDetails">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer class="dashboard-footer">
+                © 2026 St. Matthew College — All Rights Reserved
+            </footer>
+
+        </main>
+
+    </div>
+
+    <div id="profileModal" class="profile-modal">
+
+        <div class="profile-modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <h2>Edit Profile</h2>
+
+            <div class="profile-container">
+
+                <div class="profile-left">
+                    <img
+                        src="profile.png"
+                        id="previewImage"
+                        class="modal-profile-img">
+
+                    <input
+                        type="file"
+                        id="profileUpload"
+                        accept="image/*">
+                </div>
+
+                <div class="profile-right">
+
+                    <div class="profile-input-group">
+                        <label>Home Address</label>
+                        <input type="text" id="address" value="Home Address">
+                    </div>
+
+                    <div class="profile-input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" value="Email Address">
+                    </div>
+
+                    <div class="profile-input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone" inputmode="numeric" pattern="[0-9]{11}" minlength="11" maxlength="11" value="Phone Number">
+                    </div>
+
+                    <div class="profile-input-group">
+                        <label>Password</label>
+                        <button
+                            type="button"
+                            class="change-password-btn">
+                            Change Password
+                        </button>
+                    </div>
+
+                    <div id="passwordModal" class="password-modal">
+
+                        <div class="password-modal-content">
+
+                            <span class="close-btn">&times;</span>
+
+                            <h2>Change Password</h2>
+
+                            <div class="profile-input-group">
+                                <label>Current Password</label>
+                                <input type="password" id="oldPassword">
+                                <button type="button" 
+                                    class="password-toggle" 
+                                    id="oldPasswordToggle"
+                                    title="Show Password">
+                                    <span>&#128065;</span>
+                                </button>
+
+                                <p id="currentPasswordMessage" class="password-error-message">
+                                    Current password is incorrect.
+                                </p>
+                            </div>
+
+                            <div class="profile-input-group">
+                                <label>New Password</label>
+                                <input type="password" id="newPassword" minlength="8">
+                                <button type="button" 
+                                    class="password-toggle" 
+                                    id="newPasswordToggle"
+                                    title="Show Password">
+                                    <span>&#128065;</span>
+                                </button>
+                            </div>
+
+                            <div class="profile-input-group">
+                                <label>Confirm New Password</label>
+                                <input type="password" id="confirmPassword" minlength="8">
+                                <button type="button" 
+                                    class="password-toggle" 
+                                    id="confirmPasswordToggle"
+                                    title="Show Password">
+                                    <span>&#128065;</span>
+                                </button>
+
+                                <p id="passwordMatchMessage" class="password-error-message">
+                                    New passwords do not match.
+                                </p>
+                            </div>
+
+                            <button class="save-btn">Update Password</button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="emailOtpModal" class="email-otp-modal">
+
+                        <div class="email-otp-modal-content">
+
+                            <h2>Email Verification</h2>
+
+                            <p id="emailOtpMessage">
+                                We've sent a 6-digit verification code to your new email address.
+                                <br><br>
+                                Please enter the code below to continue.
+                            </p>
+
+                            <p id="emailNewOtpMessage">
+                                A new verification code has been sent to your new email address.
+                                <br><br>
+                                Please enter the code below to continue.
+                            </p>
+
+                            <input
+                                type="text"
+                                id="emailOtpInput"
+                                maxlength="6"
+                                placeholder="------">
+
+                            <div class="otp-buttons">
+                                <button
+                                    type="button"
+                                    class="email-otp-cancel-btn">
+                                    Cancel
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="email-otp-verify-btn"
+                                    id="verifyEmailOtpButton">
+                                    Verify
+                                </button>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="resend-email-otp-btn"
+                                id="resendEmailOtpButton">
+                                Resend OTP
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="emailSuccessModal" class="email-success-modal">
+
+                        <div class="email-success-modal-content">
+
+                            <h2>Email Verified Successfully!</h2>
+
+                            <p>
+                                Your new email address has been verified successfully.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="verify-btn"
+                                id="emailSuccessOkBtn">
+                                OK
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <p id="passwordUpdateMessage" class="password-update-message">
+                        Password updated. Click "Save Changes" to save your changes.
+                    </p>
+
+                    <button type="button" class="save-btn">Save Changes</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="profileSuccessModal" class="profile-sucess-modal">
+
+        <div class="profile-sucess-modal-content">
+
+            <h2>Profile Updated Successfully!</h2>
+
+            <p>
+                Your profile information has been updated successfully.
+            </p>
+
+            <div class="otp-buttons">
+
+                <button
+                    type="button"
+                    class="verify-btn">
+                    OK
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="requestModal" class="request-modal">
+
+        <div class="request-modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <h2>Request Document</h2>
+
+            <form id="requestForm">
+
+                <div class="request-input-group">
+
+                    <label>Document Type</label>
+
+                    <select id="documentType" required>
+
+                        <option value="">Select Document</option>
+
+                    </select>
+
+                </div>
+
+                <div class="request-input-group">
+
+                    <label>Purpose</label>
+
+                    <select id="purpose" required>
+
+                        <option value="">Select Purpose</option>
+
+                        <option>Employment</option>
+                        <option>Scholarship</option>
+                        <option>Transfer</option>
+                        <option>Enrollment</option>
+                        <option>Government</option>
+                        <option>Licensure</option>
+                        <option>Personal</option>
+
+                    </select>
+
+                </div>
+
+                <div class="request-input-group">
+
+                    <label>Number of Copies</label>
+
+                    <input
+                        type="number"
+                        id="copies"
+                        min="1"
+                        placeholder="Enter number of copies"
+                        required>
+
+                </div>
+
+                <div class="request-input-group">
+
+                    <label>Delivery Method</label>
+
+                    <div class="radio-group">
+
+                        <label>
+
+                            <input
+                                type="radio"
+                                name="delivery"
+                                checked>
+
+                            Pick Up at Registrar's Office
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="request-input-group">
+
+                    <label>Payment Method</label>
+
+                    <div class="radio-group">
+
+                        <label>
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                checked>
+
+                            Online
+
+                        </label>
+
+                        <label>
+
+                            <input
+                                type="radio"
+                                name="payment">
+
+                            Physical
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="request-input-group">
+
+                    <label>Special Instructions (Optional)</label>
+
+                    <textarea
+                        id="instructions"
+                        rows="5"
+                        placeholder="Enter additional instructions..."></textarea>
+
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button
+                        type="button"
+                        class="request-cancel-btn">
+
+                        Cancel
+
+                    </button>
+
+                    <button 
+                        type="submit"
+                        class="request-submit-btn">
+
+                        Submit Request
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div id="requestOtpModal" class="request-otp-modal">
+
+        <div class="request-otp-modal-content">
+
+            <h2>Email Verification</h2>
+
+            <p id="requestOtpMessage">
+                We've sent a 6-digit verification code to your email address.
+                <br><br>
+                Please enter the code below to confirm your document request.
+            </p>
+
+            <p id="requestNewOtpMessage">
+                A new verification code has been sent to your email.
+                <br><br>
+                Please enter the code below to continue.
+            </p>
+
+            <input
+                type="text"
+                id="requestOtpInput"
+                maxlength="6"
+                placeholder="------">
+
+            <div class="otp-buttons">
+
+                <button
+                    type="button"
+                    class="request-otp-cancel-btn">
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="request-otp-verify-btn"
+                    id="verifyRequestOtpButton">
+                    Verify
+                </button>
+
+            </div>
+
+            <button
+                type="button"
+                class="resend-request-otp-btn"
+                id="resendRequestOtpButton">
+                Resend OTP
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="requestSuccessModal" class="request-success-modal">
+
+        <div class="request-success-modal-content">
+
+            <h2>Request Submitted Successfully!</h2>
+
+            <p>
+                Your document request has been submitted successfully.
+                <br><br>
+
+                <strong>Reference Number:</strong>
+                <span id="successReferenceNumber"></span>
+
+                <br><br>
+
+                Your request is now pending review by the Registrar's Office.
+                You will receive an email notification once your request has been reviewed and processed.
+            </p>
+
+            <button
+                type="button"
+                class="verify-btn"
+                id="requestSuccessOkBtn">
+                OK
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="trackingModal" class="tracking-modal">
+
+        <div class="tracking-modal-content">
+
+            <span class="close-btn">&times;</span>
+
+            <h2>Status Tracking</h2>
+
+            <div class="tracking-input-group">
+
+                <label>Document Reference Number</label>
+
+                <input
+                    type="text"
+                    id="referenceNumber"
+                    placeholder="Enter your reference number">
+
+            </div>
+
+            <button
+                type="button"
+                class="track-btn">
+
+                Track Status
+
+            </button>
+
+            <div id="trackingResult" class="tracking-result">
+
+                <h3>Your Document Request</h3>
+
+                <div id="requestDetails" class="request-details-card"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="appointmentSuccessModal" class="appointment-sucess-modal">
+
+        <div class="appointment-sucess-modal-content">
+
+            <h2>Appointment Confirmed!</h2>
+
+            <p>
+                Your pickup appointment has been successfully scheduled.
+                <br><br>
+
+                <strong>Pickup Date:</strong>
+                <span id="appointmentSuccessDate"></span>
+
+                <br><br>
+
+                A confirmation email has been sent to your registered email address.
+            </p>
+
+            <div class="otp-buttons">
+
+                <button
+                    type="button"
+                    class="appointment-success-verify-btn">
+
+                    OK
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script src="student-dashboard.js"></script>
+
+</body>
+</html>

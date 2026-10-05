@@ -1,0 +1,511 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #13563a;
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: url("1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(19, 86, 58, 0.78);
+}
+
+/* ==========================================
+   SIGN UP CONTAINER
+========================================== */
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+}
+
+.container h2 {
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+}
+
+/* ==========================================
+   SIGN UP FORM
+========================================== */
+
+#signupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group > label,
+.password-field > label {
+    color: #13563a;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.input-group:has(#suConfirmPass) {
+    margin-bottom: 13px;
+}
+
+/* ==========================================
+   INPUTS AND SELECT
+========================================== */
+
+#signupForm input:not([type="radio"]),
+#signupForm select {
+    width: 100%;
+    height: 46px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 6px;
+    background: rgb(253, 253, 253);
+    color: #333;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+#signupForm input::placeholder {
+    color: #777;
+}
+
+#signupForm input:focus,
+#signupForm select:focus {
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.15);
+}
+
+/* ==========================================
+   NAME FIELDS
+========================================== */
+
+.name-row {
+    display: flex;
+    gap: 12px;
+}
+
+.name-row .input-group {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ==========================================
+   PASSWORD FIELD
+========================================== */
+
+.password-field {
+    position: relative;
+}
+
+.password-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.password-field input {
+    padding-right: 48px !important;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 44px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #13563a;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.password-toggle:hover,
+.password-toggle:focus-visible {
+    background: #e8f1ec;
+    outline: none;
+}
+
+/* ==========================================
+   FORM GROUPS
+========================================== */
+
+.form-group {
+    padding: 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.87);
+}
+
+.form-group + .form-group {
+    margin-top: 8px;
+}
+
+.group-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #13563a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   RADIO BUTTONS
+========================================== */
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 0 !important;
+    margin: 0;
+    accent-color: #13563a;
+    cursor: pointer;
+}
+
+/* ==========================================
+   PROGRAM SELECT
+========================================== */
+
+#suCourse {
+    cursor: pointer;
+}
+
+/* ==========================================
+   CREATE ACCOUNT BUTTON
+========================================== */
+
+#signupForm button[type="submit"] {
+    width: 100%;
+    height: 46px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 6px;
+    background: #13563a;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#signupForm button[type="submit"]:hover {
+    background: #0e432d;
+}
+
+/* ==========================================
+   LOGIN LINK
+========================================== */
+
+.login-text {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #13563a;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.login-text a:hover {
+    text-decoration: none;
+}
+
+/* ==========================================
+   OTP MODAL
+========================================== */
+
+.otp-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.otp-box {
+    width: 420px;
+    max-width: 100%;
+    padding: 35px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.otp-box h2 {
+    margin-bottom: 15px;
+    color: #13563a;
+    font-size: 25px;
+}
+
+.otp-box p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#otpNewMessage {
+    display: none;
+}
+
+/* ==========================================
+   OTP INPUT
+========================================== */
+
+#otpInput {
+    width: 100%;
+    height: 46px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-align: center;
+    outline: none;
+}
+
+#otpInput:focus {
+    border-color: #13563a;
+    box-shadow: 0 0 0 2px rgba(19, 86, 58, 0.1);
+}
+
+/* ==========================================
+   OTP BUTTONS
+========================================== */
+
+.otp-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.otp-buttons button {
+    flex: 1;
+    height: 46px;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.verify-btn {
+    background: #13563a;
+    color: white;
+}
+
+.verify-btn:hover {
+    background: #0e432d;
+}
+
+.cancel-btn {
+    background: #e5e5e5;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background: #d5d5d5;
+}
+
+/* ==========================================
+   RESEND OTP
+========================================== */
+
+.resend-otp-btn {
+    display: block;
+    margin: 15px auto 0;
+    padding: 10px 20px;
+    border: 1px solid #13563a;
+    border-radius: 6px;
+    background: white;
+    color: #13563a;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.resend-otp-btn:hover {
+    background: #f5f5f5;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 30px 16px;
+    }
+
+    .container {
+        max-width: 380px;
+        padding: 26px 22px;
+    }
+
+    .container h2 {
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+
+    #signupForm {
+        gap: 10px;
+    }
+
+    #signupForm input:not([type="radio"]),
+    #signupForm select {
+        height: 44px;
+        padding: 0 13px;
+        font-size: 14px;
+    }
+
+    .input-group {
+        gap: 4px;
+    }
+
+    .input-group > label,
+    .password-field > label {
+        font-size: 13px;
+    }
+
+    .name-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .name-row .input-group {
+        width: 100%;
+    }
+
+    .form-group {
+        padding: 12px;
+    }
+
+    .group-label {
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .radio-label {
+        font-size: 14px;
+    }
+
+    #signupForm button[type="submit"] {
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .login-text p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .otp-box {
+        padding: 30px 25px;
+    }
+
+    .otp-box h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+    .otp-box p {
+        font-size: 14px;
+    }
+
+    #otpInput {
+        height: 44px;
+        font-size: 17px;
+    }
+
+    .otp-buttons button {
+        height: 44px;
+        font-size: 14px;
+    }
+
+    .resend-otp-btn {
+        font-size: 13px;
+    }
+}

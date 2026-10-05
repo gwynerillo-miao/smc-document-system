@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - St. Matthew College</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-mainpage.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="admin-menu">
+
+            <button type="button" class="admin-btn" id="adminMenuBtn">
+                <span class="admin-avatar">A</span>
+                <span class="admin-name" id="adminName">Admin</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="admin-dropdown" id="adminDropdown">
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔒</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="adminLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="adminSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <div class="sidebar-dropdown">
+
+                    <button type="button" class="sidebar-item account-btn">
+                        <span class="sidebar-icon">♟</span>
+                        <span>Account Management</span>
+                        <span class="sidebar-arrow">▼</span>
+                    </button>
+
+                    <div class="submenu">
+
+                        <button type="button" class="submenu-item" id="studentManagementBtn">
+                            Student Management
+                        </button>
+
+                        <button type="button" class="submenu-item" id="staffManagementBtn">
+                            Staff Management
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="sidebar-item" id="historyReportsBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>History & Reports</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentSettingsBtn">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Document Settings</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="announcementsBtn">
+                    <span class="sidebar-icon">🗣</span>
+                    <span>Announcements</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>
+                    <span class="page-icon">▦</span>
+                    Welcome to the Administrator Dashboard!
+                </h1>
+                <p>
+                    Manage user accounts, monitor system activity, and maintain the system's configuration.
+                </p>
+            </div>
+
+            <section class="admin-mainpage">
+
+                <div class="attention-section">
+
+                    <h2>Needs Your Attention</h2>
+
+                    <button type="button" class="attention-item" id="pendingAccountsBtn">
+
+                        <span class="attention-count" id="pendingAccountCount">0</span>
+
+                        <span class="attention-info">
+                            <span class="attention-title">Pending Account Approval</span>
+                            <span class="attention-description">
+                                Review newly registered student accounts
+                            </span>
+                        </span>
+
+                        <span class="attention-arrow">→</span>
+
+                    </button>
+
+                </div>
+
+                <div class="overview-section">
+
+                    <h2>Overview</h2>
+
+                    <div class="overview-grid">
+
+                        <div class="overview-card">
+                            <span class="overview-label">Total Students</span>
+                            <strong class="overview-count" id="totalStudentsCount">0</strong>
+                            <span class="overview-description">Approved student accounts</span>
+                        </div>
+
+                        <div class="overview-card">
+                            <span class="overview-label">Total Active Staff</span>
+                            <strong class="overview-count" id="totalActiveStaffCount">0</strong>
+                            <span class="overview-description">Active staff accounts</span>
+                        </div>
+
+                        <div class="overview-card">
+                            <span class="overview-label">Total Documents</span>
+                            <strong class="overview-count" id="totalDocumentsCount">0</strong>
+                            <span class="overview-description">Configured document types</span>
+                        </div>
+
+                        <div class="overview-card">
+                            <span class="overview-label">Total Active Announcements</span>
+                            <strong class="overview-count" id="totalActiveAnnouncementsCount">0</strong>
+                            <span class="overview-description">Currently published</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="activity-section">
+
+                    <div class="activity-header">
+                        <h2>Recent System Activity</h2>
+                        <span>Latest administrative actions</span>
+                    </div>
+
+                    <div class="activity-list" id="activityList"></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <div class="admin-modal" id="changePasswordModal">
+
+        <div class="admin-modal-content">
+
+            <div class="admin-modal-header">
+                <h2>Change Password</h2>
+                <button type="button" class="admin-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+                    <button type="button" class="password-toggle" data-target="currentPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="newPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="confirmPassword">
+                        👁
+                    </button>
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="admin-data.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="admin-mainpage.js"></script>
+
+</body>
+</html>

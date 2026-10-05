@@ -1,0 +1,458 @@
+/* ==========================================
+   ANNOUNCEMENT CONTAINER
+========================================== */
+
+.announcement-container {
+    min-height: 300px;
+    margin: 0 40px 40px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e1e5e3;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   ANNOUNCEMENT ACTIONS
+========================================== */
+
+.announcement-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: -52px 40px 16px;
+}
+
+.create-announcement-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 16px;
+    background: #13563a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.create-announcement-btn span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.create-announcement-btn:hover {
+    background: #0e432d;
+}
+
+/* ==========================================
+   ANNOUNCEMENT MODAL
+========================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.announcement-modal {
+    width: 520px;
+    max-width: calc(100% - 40px);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+.field-error {
+    display: block;
+    margin-top: 5px;
+    color: #b42318;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   MODAL HEADER
+========================================== */
+
+.modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #edf0ee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #13563a;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.modal-header p {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   MODAL BODY
+========================================== */
+
+.modal-body {
+    padding: 22px 24px;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 7px;
+    color: #444;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.modal-body input,
+.modal-body textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: #fff;
+    color: #333;
+    border: 1px solid #d5dbd8;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+    border-color: #13563a;
+}
+
+.modal-body input::placeholder,
+.modal-body textarea::placeholder {
+    color: #9aa3a0;
+}
+
+.modal-body textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#announcementMessage {
+    margin-top: 0;
+}
+
+.modal-body input + label {
+    margin-top: 18px;
+}
+
+/* ==========================================
+   MODAL BUTTONS
+========================================== */
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 20px;
+}
+
+.cancel-btn,
+.publish-btn {
+    min-width: 85px;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #fff;
+    color: #555;
+    border: 1px solid #d5dbd8;
+}
+
+.cancel-btn:hover {
+    background: #f5f6f6;
+}
+
+.publish-btn {
+    background: #13563a;
+    color: #fff;
+    border: 1px solid #13563a;
+}
+
+.publish-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+/* ==========================================
+   CONFIRMATION MODAL
+========================================== */
+
+.confirm-modal {
+    width: 390px;
+    max-width: calc(100% - 40px);
+    padding: 28px 28px 22px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    text-align: center;
+}
+
+.confirm-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 14px;
+    background: #e8f1ed;
+    color: #13563a;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.confirm-modal h2 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.confirm-modal p {
+    margin: 8px 0 4px;
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.confirm-modal .modal-buttons {
+    padding: 20px 0 0;
+}
+
+/* ==========================================
+   ANNOUNCEMENT TOOLBAR
+========================================== */
+
+.announcement-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.announcement-toolbar p {
+    margin: 0;
+    color: #8a938f;
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   ANNOUNCEMENT SORT
+========================================== */
+
+.announcement-sort {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.announcement-sort label {
+    color: #555;
+    font-size: 12px;
+}
+
+.announcement-sort select {
+    padding: 7px 28px 7px 10px;
+    background: #fff;
+    color: #444;
+    border: 1px solid #d5dbd8;
+    border-radius: 5px;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.announcement-sort select:focus {
+    border-color: #13563a;
+}
+
+/* ==========================================
+   ANNOUNCEMENT LIST
+========================================== */
+
+.announcement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* ==========================================
+   ANNOUNCEMENT CARD
+========================================== */
+
+.announcement-card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e1e5e3;
+    border-radius: 8px;
+}
+
+.announcement-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.announcement-card-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.announcement-date {
+    display: block;
+    margin-top: 5px;
+    color: #8a938f;
+    font-size: 12px;
+}
+
+.announcement-status {
+    padding: 5px 10px;
+    background: #e8f1ed;
+    color: #13563a;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   ANNOUNCEMENT MESSAGE
+========================================== */
+
+.announcement-message {
+    margin: 15px 0 18px;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   ANNOUNCEMENT ACTIONS
+========================================== */
+
+.announcement-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid #edf0ee;
+}
+
+.announcement-edit-btn,
+.announcement-delete-btn {
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.announcement-edit-btn {
+    background: #13563a;
+    color: #fff;
+    border: 1px solid #13563a;
+}
+
+.announcement-edit-btn:hover {
+    background: #0e432d;
+    border-color: #0e432d;
+}
+
+.announcement-delete-btn {
+    background: #fff;
+    color: #b42318;
+    border: 1px solid #d8b4b0;
+}
+
+.announcement-delete-btn:hover {
+    background: #fdf3f2;
+}
+
+/* ==========================================
+   DELETE BUTTON
+========================================== */
+
+.delete-confirm-btn {
+    min-width: 85px;
+    padding: 9px 16px;
+    background: #b42318;
+    color: #fff;
+    border: 1px solid #b42318;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.delete-confirm-btn:hover {
+    background: #941b12;
+    border-color: #941b12;
+}
+
+/* ==========================================
+   NO ANNOUNCEMENTS
+========================================== */
+
+.no-announcements {
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.no-announcement-icon {
+    margin-bottom: 12px;
+    font-size: 32px;
+}
+
+.no-announcements h3 {
+    margin: 0;
+    color: #444;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.no-announcements p {
+    margin: 6px 0 0;
+    color: #8a938f;
+    font-size: 13px;
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - St. Matthew College</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-historyreports.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="admin-menu">
+
+            <button type="button" class="admin-btn" id="adminMenuBtn">
+                <span class="admin-avatar">A</span>
+                <span class="admin-name" id="adminName">Admin</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="admin-dropdown" id="adminDropdown">
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔒</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="adminLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="adminSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <div class="sidebar-dropdown">
+
+                    <button type="button" class="sidebar-item account-btn">
+                        <span class="sidebar-icon">♟</span>
+                        <span>Account Management</span>
+                        <span class="sidebar-arrow">▼</span>
+                    </button>
+
+                    <div class="submenu">
+
+                        <button type="button" class="submenu-item" id="studentManagementBtn">
+                            Student Management
+                        </button>
+
+                        <button type="button" class="submenu-item" id="staffManagementBtn">
+                            Staff Management
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="sidebar-item" id="historyReportsBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>History & Reports</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentSettingsBtn">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Document Settings</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="announcementsBtn">
+                    <span class="sidebar-icon">🗣</span>
+                    <span>Announcements</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>
+                    <span class="page-icon">◷</span>
+                    History & Reports
+                </h1>
+
+                <p>Review processed student account registrations and generate reports from them.</p>
+            </div>
+
+            <section class="reports-container">
+
+                <div class="reports-top">
+
+                    <h2>Reports</h2>
+
+                    <div class="report-filter">
+
+                        <label for="monthPicker">Sort by:</label>
+
+                        <button type="button" class="sort-picker" id="sortPicker">
+                            <span id="sortValue">All Time</span>
+                            <span class="sort-icon">▾</span>
+                        </button>
+
+                        <input type="month" id="monthPicker">
+
+                    </div>
+
+                </div>
+
+                <div class="reports-content">
+
+                    <div class="account-summary">
+
+                        <h3>Account Summary</h3>
+
+                        <div class="summary-list">
+
+                            <div class="summary-item">
+                                <span class="summary-label">Total Accounts</span>
+                                <span class="summary-value" id="totalAccounts"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Approved</span>
+                                <span class="summary-value" id="approvedAccounts"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Rejected</span>
+                                <span class="summary-value" id="rejectedAccounts"></span>
+                            </div>
+
+                            <div class="summary-item">
+                                <span class="summary-label">Pending</span>
+                                <span class="summary-value" id="pendingAccounts"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="account-chart">
+
+                        <h3>Account Status</h3>
+
+                        <div class="pie-chart">
+                            <div class="pie-center">
+                                <strong id="chartTotal"></strong>
+                                <span>Accounts</span>
+                            </div>
+                        </div>
+
+                        <div class="chart-legend">
+
+                            <div class="legend-item">
+                                <span class="legend-dot approved-dot"></span>
+                                <span>Approved</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot rejected-dot"></span>
+                                <span>Rejected</span>
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot pending-dot"></span>
+                                <span>Pending</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="history-container">
+
+                <div class="history-top">
+                    <h2>Account History</h2>
+
+                    <div class="history-controls">
+                        <div class="history-search">
+                            <span class="search-icon">⌕</span>
+                            <input type="text" id="historySearch" placeholder="Search student number or name...">
+                        </div>
+
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+
+                        <select id="sortFilter">
+                            <option value="newest">Newest to Oldest</option>
+                            <option value="oldest">Oldest to Newest</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="history-table-wrapper">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Student Number</th>
+                                <th>Name</th>
+                                <th>Date Registered</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="history-footer">
+                    <span class="history-count" id="historyCount"></span>
+                    <div class="pagination" id="pagination"></div>
+                </div>
+                
+            </section>
+
+        </main>
+
+        <div class="student-modal" id="historyDetailsModal">
+
+            <div class="student-modal-box">
+
+                <div class="student-modal-header">
+
+                    <h2>Account Registration Details</h2>
+
+                    <button type="button" class="student-modal-close" id="closeHistoryModal">
+                        ×
+                    </button>
+
+                </div>
+
+                <div class="student-details">
+
+                    <div class="detail-item">
+                        <span class="detail-label">Student Number</span>
+                        <span class="detail-value" id="historyDetailStudentNumber"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Full Name</span>
+                        <span class="detail-value" id="historyDetailName"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Home Address</span>
+                        <span class="detail-value" id="historyDetailAddress"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Email Address</span>
+                        <span class="detail-value" id="historyDetailEmail"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Phone Number</span>
+                        <span class="detail-value" id="historyDetailPhone"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Account Type</span>
+                        <span class="detail-value" id="historyDetailAccountType"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Program</span>
+                        <span class="detail-value" id="historyDetailProgram"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Date Registered</span>
+                        <span class="detail-value" id="historyDetailDateRegistered"></span>
+                    </div>
+
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value" id="historyDetailStatus"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="admin-modal" id="changePasswordModal">
+
+        <div class="admin-modal-content">
+
+            <div class="admin-modal-header">
+                <h2>Change Password</h2>
+                <button type="button" class="admin-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+                    <button type="button" class="password-toggle" data-target="currentPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="newPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="confirmPassword">
+                        👁
+                    </button>
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="admin-data.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="admin-historyreports.js"></script>
+
+</body>
+</html>

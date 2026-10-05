@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - St. Matthew College</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="admin-accmgt.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" alt="St. Matthew College Logo" class="header-logo">
+            <div class="header-text">St. Matthew College</div>
+        </div>
+
+        <div class="admin-menu">
+
+            <button type="button" class="admin-btn" id="adminMenuBtn">
+                <span class="admin-avatar">A</span>
+                <span class="admin-name" id="adminName">Admin</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+
+            <div class="admin-dropdown" id="adminDropdown">
+
+                <button type="button" class="dropdown-item" id="changePasswordBtn">
+                    <span class="dropdown-icon">🔒</span>
+                    <span>Change Password</span>
+                </button>
+
+                <button type="button" class="dropdown-item logout-item" id="adminLogoutBtn">
+                    <span class="dropdown-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="dashboard-container">
+
+        <aside class="sidebar" id="adminSidebar">
+
+            <nav class="sidebar-menu">
+
+                <button type="button" class="sidebar-item" id="dashboardBtn">
+                    <span class="sidebar-icon">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <div class="sidebar-dropdown">
+
+                    <button type="button" class="sidebar-item account-btn">
+                        <span class="sidebar-icon">♟</span>
+                        <span>Account Management</span>
+                        <span class="sidebar-arrow">▼</span>
+                    </button>
+
+                    <div class="submenu">
+
+                        <button type="button" class="submenu-item" id="studentManagementBtn">
+                            Student Management
+                        </button>
+
+                        <button type="button" class="submenu-item" id="staffManagementBtn">
+                            Staff Management
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="sidebar-item" id="historyReportsBtn">
+                    <span class="sidebar-icon">◷</span>
+                    <span>History & Reports</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="documentSettingsBtn">
+                    <span class="sidebar-icon">⚙</span>
+                    <span>Document Settings</span>
+                </button>
+
+                <button type="button" class="sidebar-item" id="announcementsBtn">
+                    <span class="sidebar-icon">🗣</span>
+                    <span>Announcements</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-logo">
+                <img src="logo.png" alt="St. Matthew College Logo">
+            </div>
+
+        </aside>
+
+        <main class="main-content">
+
+            <!-- STUDENT MANAGEMENT -->
+            <section id="studentSection" class="management-section">
+
+                <div class="page-header">
+                    <h1>
+                        <span class="page-icon">♟</span>
+                        Student Management
+                    </h1>
+
+                    <p>Manage student account registrations and access.</p>
+                </div>
+
+                <section class="student-container">
+
+                    <div class="student-top">
+                        <h2>Account Registrations</h2>
+
+                        <div class="student-controls">
+                            <div class="student-search">
+                                <span class="search-icon">⌕</span>
+                                <input type="text" id="studentSearch" placeholder="Search student number or name...">
+                            </div>
+
+                            <select id="studentSortFilter">
+                                <option value="oldest">Oldest to Newest</option>
+                                <option value="newest">Newest to Oldest</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="student-table-wrapper">
+                        <table class="student-table">
+                            <thead>
+                                <tr>
+                                    <th>Student Number</th>
+                                    <th>Name</th>
+                                    <th>Date Registered</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="student-footer">
+                        <span class="student-count" id="studentCount"></span>
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <div class="student-modal" id="studentDetailsModal">
+
+                <div class="student-modal-box">
+
+                    <div class="student-modal-header">
+                        <h2>Account Registration Details</h2>
+
+                            <button type="button" class="student-modal-close" id="closeStudentModal">
+                                ×
+                            </button>
+                    </div>
+
+                    <div class="student-details">
+
+                        <div class="detail-item">
+                            <span class="detail-label">Student Number</span>
+                            <span class="detail-value" id="detailStudentNumber"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Full Name</span>
+                            <span class="detail-value" id="detailName"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Home Address</span>
+                            <span class="detail-value" id="detailAddress"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Email Address</span>
+                            <span class="detail-value" id="detailEmail"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Phone Number</span>
+                            <span class="detail-value" id="detailPhone"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Account Type</span>
+                            <span class="detail-value" id="detailAccountType"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Program</span>
+                            <span class="detail-value" id="detailProgram"></span>
+                        </div>
+
+                        <div class="detail-item">
+                            <span class="detail-label">Date Registered</span>
+                            <span class="detail-value" id="detailDateRegistered"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="student-modal-actions">
+
+                            <button type="button" class="student-reject-btn">
+                                Reject
+                            </button>
+
+                            <button type="button" class="student-approve-btn">
+                                Approve
+                            </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="student-confirm-modal" id="studentConfirmModal">
+
+                <div class="student-confirm-box">
+
+                    <div class="student-confirm-icon" id="studentConfirmIcon">
+                        !
+                    </div>
+
+                    <h2 id="studentConfirmTitle">Confirm Action</h2>
+
+                    <p id="studentConfirmMessage"></p>
+
+                    <div class="student-confirm-actions">
+
+                        <button type="button" class="student-cancel-btn" id="studentCancelBtn">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="student-confirm-btn" id="studentConfirmBtn">
+                            Confirm
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- STAFF MANAGEMENT -->
+            <section id="staffSection" class="management-section">
+
+                <div class="page-header">
+                    <h1>
+                        <span class="page-icon">♟</span>
+                        Staff Management
+                    </h1>
+
+                    <p>Manage authorized staff accounts and their system access.</p>
+                </div>
+
+                <div class="staff-actions">
+                    <button type="button" class="add-staff-btn">
+                        <span>+</span>
+                        Add Staff Account
+                    </button>
+                </div>
+
+                <div class="staff-summary">
+
+                    <div class="staff-summary-card">
+                        <div class="staff-summary-info">
+                            <span class="staff-summary-label">Total Staff Accounts</span>
+                            <strong id="totalStaffCount">0</strong>
+                            <span class="staff-summary-description">Registered Staff</span>
+                        </div>
+                    </div>
+
+                    <div class="staff-summary-card">
+                        <div class="staff-summary-info">
+                            <span class="staff-summary-label">Active</span>
+                            <strong id="activeStaffCount">0</strong>
+                            <span class="staff-summary-description">Active Accounts</span>
+                        </div>
+                    </div>
+
+                    <div class="staff-summary-card">
+                        <div class="staff-summary-info">
+                            <span class="staff-summary-label">Pending</span>
+                            <strong id="pendingStaffCount">0</strong>
+                            <span class="staff-summary-description">Awaiting Setup</span>
+                        </div>
+                    </div>
+
+                    <div class="staff-summary-card">
+                        <div class="staff-summary-info">
+                            <span class="staff-summary-label">Inactive</span>
+                            <strong id="inactiveStaffCount">0</strong>
+                            <span class="staff-summary-description">Deactivated Accounts</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <section class="staff-container">
+
+                    <div class="staff-top">
+                        <h2>Staff Accounts</h2>
+
+                        <div class="staff-controls">
+                            <div class="staff-search">
+                                <span class="search-icon">⌕</span>
+                                <input type="text" id="staffSearch" placeholder="Search staff ID or name...">
+                            </div>
+
+                            <select id="staffRoleFilter">
+                                <option value="all">All Roles</option>
+                                <option value="registrar">Registrar</option>
+                                <option value="guidance">Guidance</option>
+                            </select>
+
+                            <select id="staffStatusFilter">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="staff-table-wrapper">
+                        <table class="staff-table">
+                            <thead>
+                                <tr>
+                                    <th>Staff ID</th>
+                                    <th>Name</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="staffTableBody"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="staff-footer">
+                        <span class="staff-count" id="staffCount"></span>
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <div class="staff-modal" id="addStaffModal">
+
+                <div class="staff-modal-box">
+
+                    <div class="staff-modal-header">
+                        <h2>Add Staff Account</h2>
+
+                        <button type="button" class="staff-modal-close" id="closeAddStaffModal">
+                            ×
+                        </button>
+                    </div>
+
+                    <div class="staff-form">
+
+                        <div class="staff-form-group">
+                            <label for="staffId">Staff ID</label>
+                            <input type="text" id="staffId" placeholder="Enter staff ID">
+                        </div>
+
+                        <div class="staff-form-group">
+                            <label for="staffRole">Role</label>
+                            <select id="staffRole">
+                                <option value="">Select role</option>
+                                <option value="registrar">Registrar</option>
+                                <option value="guidance">Guidance</option>
+                            </select>
+                        </div>
+
+                        <div class="staff-form-group">
+                            <label for="temporaryPassword">Temporary Password</label>
+
+                            <div class="password-generator">
+                                <input type="text" id="temporaryPassword" readonly>
+
+                                <button type="button" id="regeneratePassword">
+                                    Regenerate
+                                </button>
+                            </div>
+
+                            <p class="password-note">
+                                This password is auto-generated. The staff member will be required to reset it once they log in.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="staff-modal-actions">
+
+                        <button type="button" class="staff-cancel-btn" id="cancelAddStaff">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="staff-create-btn" id="createStaffBtn">
+                            Create Account
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="staff-confirm-modal" id="staffConfirmModal">
+
+                <div class="staff-confirm-box">
+
+                    <div class="staff-confirm-icon">
+                        !
+                    </div>
+
+                    <h2>Confirm Account Creation</h2>
+
+                    <p>
+                        Are you sure you want to create this staff account?
+                    </p>
+
+                    <div class="staff-confirm-actions">
+
+                        <button type="button" class="staff-confirm-cancel" id="staffConfirmCancel">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="staff-confirm-btn" id="staffConfirmCreate">
+                            Confirm
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="staff-success-modal" id="staffSuccessModal">
+
+                <div class="staff-success-box">
+
+                    <div class="staff-success-icon">
+                        ✓
+                    </div>
+
+                    <h2>Staff Account Created</h2>
+
+                    <p class="staff-success-message">
+                        The staff account has been created. Share these temporary credentials with the staff member securely — they will be prompted to reset the password on first login.
+                    </p>
+
+                    <div class="staff-credentials">
+
+                        <div class="credential-item">
+                            <span class="credential-label">Staff ID</span>
+                            <span class="credential-value" id="successStaffId"></span>
+                        </div>
+
+                        <div class="credential-item">
+                            <span class="credential-label">Role</span>
+                            <span class="credential-value" id="successStaffRole"></span>
+                        </div>
+
+                        <div class="credential-item">
+                            <span class="credential-label">Temporary Password</span>
+                            <span class="credential-value" id="successStaffPassword"></span>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="staff-done-btn" id="staffDoneBtn">
+                        Done
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="staff-details-modal" id="staffDetailsModal">
+
+                <div class="staff-details-box">
+
+                    <div class="staff-details-header">
+                        <h2>Staff Account Details</h2>
+
+                        <button type="button" class="staff-details-close" id="closeStaffDetails">
+                            ×
+                        </button>
+                    </div>
+
+                    <div class="staff-details">
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Staff ID</span>
+                            <span class="staff-detail-value" id="viewStaffId"></span>
+                        </div>
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Name</span>
+                            <span class="staff-detail-value" id="viewStaffName"></span>
+                        </div>
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Role</span>
+                            <span class="staff-detail-value" id="viewStaffRole"></span>
+                        </div>
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Email Address</span>
+                            <span class="staff-detail-value" id="viewStaffEmail"></span>
+                        </div>
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Contact Number</span>
+                            <span class="staff-detail-value" id="viewStaffPhone"></span>
+                        </div>
+
+                        <div class="staff-detail-item" id="temporaryPasswordRow">
+                            <span class="staff-detail-label">Temporary Password</span>
+                            <span class="staff-detail-value" id="viewStaffPassword"></span>
+                        </div>
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Date Created</span>
+                            <span class="staff-detail-value" id="viewStaffDate"></span>
+                        </div>
+
+                        <div class="staff-detail-item">
+                            <span class="staff-detail-label">Account Status</span>
+                            <span class="staff-detail-value" id="viewStaffStatus"></span>
+                        </div>
+
+                    </div>
+
+                    <div class="staff-details-actions">
+
+                        <button type="button" class="staff-deactivate-btn" id="staffDeactivateBtn">
+                            Deactivate Account
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="staff-deactivate-modal" id="staffDeactivateModal">
+
+                <div class="staff-deactivate-box">
+
+                    <div class="staff-deactivate-icon">
+                        !
+                    </div>
+
+                    <h2>Deactivate Staff Account</h2>
+
+                    <p>
+                        Are you sure you want to deactivate this staff account?
+                        The staff member will no longer be able to access the system.
+                    </p>
+
+                    <div class="staff-deactivate-actions">
+
+                        <button type="button" class="staff-deactivate-cancel" id="staffDeactivateCancel">
+                            Cancel
+                        </button>
+
+                        <button type="button" class="staff-deactivate-confirm" id="staffDeactivateConfirm">
+                            Confirm
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <div class="admin-modal" id="changePasswordModal">
+
+        <div class="admin-modal-content">
+
+            <div class="admin-modal-header">
+                <h2>Change Password</h2>
+                <button type="button" class="admin-modal-close" id="closeChangePassword">
+                    ×
+                </button>
+            </div>
+
+            <form id="changePasswordForm">
+
+                <label for="currentPassword">Current Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="currentPassword"
+                        required
+                    >
+                    <button type="button" class="password-toggle" data-target="currentPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="newPassword">New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="newPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="newPassword">
+                        👁
+                    </button>
+                </div>
+
+
+                <label for="confirmPassword">Confirm New Password</label>
+
+                <div class="password-field">
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        required
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="confirmPassword">
+                        👁
+                    </button>
+                </div>
+
+                <p id="changePasswordMessage"></p>
+
+                <button type="submit" class="change-password-submit">
+                    Change Password
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="admin-data.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="admin-accmgt.js"></script>
+
+</body>
+</html>
